@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Brain Tumor Prediction</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
+
+      body {
+        font-family: "Cal Sans", sans-serif;
+        text-align: center;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        color: #444;
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      input[type="file"] {
+        margin: 20px;
+        padding: 10px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        border: none;
+        background-color: #2fa793;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      img {
+        max-width: 300px;
+        max-height: 300px;
+
+        border-radius: 10px;
+        border: 3px solid #ddd;
+      }
+
+      h2 {
+        color: #333;
+        font-size: 1.5rem;
+        margin-top: 20px;
+      }
+
+      form {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Brain Tumor Prediction</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" required />
+      <br />
+      <button type="submit">Upload and Predict</button>
+    </form>
+
+    {% if prediction %}
+    <h2>Prediction: {{ prediction }}</h2>
+    <img src="{{ image_path }}" alt="Uploaded Image" />
+    {% endif %}
+  </body>
+</html>
